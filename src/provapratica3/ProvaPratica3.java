@@ -14,14 +14,7 @@ força bruta:
 public class ProvaPratica3 {
 
     public static void main(String[] args) {
-        int[][] distancias = {
-                                   { 0, 10, 15, 20 },
-                                   { 10,  0, 35, 25 },
-                                   { 15, 35,  0, 30 },
-                                   { 20, 25, 30,  0 }
-                                   };
-        ForcaBruta forcaBruta = new ForcaBruta(4, distancias);
-        forcaBruta.imprimir();
+        MainForcaBruta mfb = new MainForcaBruta();
     }
     
 }
