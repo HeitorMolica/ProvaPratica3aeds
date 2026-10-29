@@ -18,6 +18,7 @@ public class ForcaBruta {
     public int distancia_atual;
     public int distancia_total;
     public ArrayList<Cidade> rota;
+    public ArrayList<Cidade> melhor_rota;
     public ArrayList<Cidade> cidades;
     public int cidades_visitadas;
     public Cidade cidade_inicial;
@@ -36,11 +37,14 @@ public class ForcaBruta {
     public void iniciarCidades(){
         rota = new ArrayList<>();
         cidades = new ArrayList<>();
+        melhor_rota = new ArrayList<>();
         for(int i = 0; i < numero_cidades; i++){
             cidades.add(new Cidade(i));
         }
         cidade_inicial = cidades.get(0);
-        acharRota(cidade_inicial, distancia_atual, cidades_visitadas);
+        cidade_inicial.setFlag(true);
+        rota.add(cidade_inicial);
+        acharRota(cidade_inicial, distancia_atual, 1);
     }
     
     public void acharRota(Cidade cidade_atual,int distancia_atual, int cidades_visitadas){
@@ -48,6 +52,7 @@ public class ForcaBruta {
             distancia_atual += calcularDistancia(cidade_inicial, cidade_atual);
             if(distancia_atual < distancia_total){
                 distancia_total = distancia_atual;
+                melhor_rota = new ArrayList<>(rota);
             }
             return;
         }
@@ -58,7 +63,7 @@ public class ForcaBruta {
                 rota.add(temp);
                 acharRota(temp, distancia_atual + calcularDistancia(cidade_atual, temp), cidades_visitadas + 1);
                 temp.setFlag(false);
-                rota.remove(temp);
+                rota.remove(rota.size() - 1); //remove o ultimo elemento da rota
             }
         }  
     }
@@ -72,8 +77,9 @@ public class ForcaBruta {
     public void imprimir(){
         System.out.println("Rota: ");
         for(int i = 0; i < numero_cidades; i++){
-            System.out.println("Cidade " + rota.get(i).getIdentificador());
+            System.out.print("Cidade " + melhor_rota.get(i).getIdentificador() + " -> ");
         }
+        System.out.println("");
         System.out.println("Distancia menor rota = " + distancia_total);
     }
 }
