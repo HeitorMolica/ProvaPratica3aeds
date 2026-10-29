@@ -10,26 +10,39 @@ package provapratica3;
  */
 public class Cidade {
    
-    private int nome;
-    private Boolean flag;
+    private int identificador;
+    private String nome;
     private int posicao_rota;
+    private boolean flag;
     
-    public Cidade(int nome){
+    public Cidade(String nome, int identificador){
         this.nome = nome;
-        this.flag = false;
+        this.identificador = identificador;
         this.posicao_rota = -1;
+        this.flag = false;
     }
     
-    public int getNome(){
+    public Cidade(int identificador){
+        this.nome = "";
+        this.identificador = identificador;
+        this.posicao_rota = -1;
+        this.flag = false;
+    }
+    
+    public void setFlag(boolean flag){
+       this.flag = flag;
+    }
+    
+    public boolean getFlag(){
+        return this.flag;
+    }
+    
+    public int getIdentificador(){
+        return this.identificador;
+    }
+    
+    public String getNome(){
         return this.nome;
-    }
-    
-    public Boolean isFlag(){
-        return flag;
-    }
-    
-    public void setFlag(Boolean flag){
-        this.flag = flag;
     }
     
     public int getPosicao(){
