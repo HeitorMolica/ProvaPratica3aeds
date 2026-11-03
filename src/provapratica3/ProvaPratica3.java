@@ -1,7 +1,7 @@
 
 package provapratica3;
 
-//Heitor Molica, Arthur Reis, Luiz Mattos.
+//Heitor Molica, Arthur Reis, Luiz Matos.
 /*
 força bruta:
     classe cidade -> nome (cidade0, cidade1, etc)
