@@ -31,8 +31,8 @@ public class MainAproximado {
 
     public static void main(String[] args) {
         System.out.println("--- Algoritmo Aproximado (Arvore Geradora Minima) ---");
-        executar("si535.tsp", 535, true);
-        executar("pa561.tsp", 561, false);
-        executar("si1032.tsp", 1032, true);
+        executar("src/provapratica3/arquivosTeste/si535.tsp.txt", 535, true);
+        executar("src/provapratica3/arquivosTeste/pa561.tsp.txt", 561, false);
+        executar("src/provapratica3/arquivosTeste/si1032.tsp.txt", 1032, true);
     }
 }

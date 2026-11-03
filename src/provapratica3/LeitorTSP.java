@@ -24,7 +24,8 @@ public class LeitorTSP {
             while (scanner.hasNext()) {
                 String palavra = scanner.next();
 
-                if (palavra.equals("EOF")) { // Fim do arquivo
+                // Fim do arquivo ou início de outra seção
+                if (palavra.equals("EOF") || (lendoPesos && palavra.endsWith("_SECTION"))) {
                     break;
                 }
 
